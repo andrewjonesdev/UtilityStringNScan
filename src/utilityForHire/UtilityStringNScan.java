@@ -64,7 +64,7 @@ public abstract class UtilityStringNScan {
 		
 		return again;
 	}
-	public static String sentenceCheck(String question1, String invalid1, boolean keepLooping, ArrayList <String> list, int whichVar, Scanner strScan ){
+	public static String sentenceCheck(String question1, String invalid1, boolean keepLooping, ArrayList <String> list, Scanner strScan ){
 		String output = "";
 		do{
 				System.out.println(question1);
@@ -86,7 +86,7 @@ public abstract class UtilityStringNScan {
 			keepLooping=false;
 		}while(keepLooping);	
 		return output;
-	}
+	}	
 	public static int intCheck(String question1/*, String invalid1, boolean testInvalid*/, boolean keepLooping, Scanner numScan){
 		int output = 0;
 		do{
@@ -119,6 +119,56 @@ public abstract class UtilityStringNScan {
 		//checks if letters are input
 			if (numScan.hasNextDouble()){
 				output = numScan.nextDouble();
+				keepLooping = false;
+				//checks if the user has given a date that hasn't occured yet
+
+				//checks if date is real or not. B.C. is not accepted
+				/*if(testInvalid){
+					System.out.println(invalid1);	
+					keepLooping = true;
+				}*/
+
+			}else{
+				System.out.println("You didn't submit a whole number. Please try again.");
+				numScan.next();
+				keepLooping = true;
+				continue;
+			}
+		}while(keepLooping);
+		return output;
+	}
+	public static long longCheck(String question1/*, String invalid1, boolean testInvalid*/, boolean keepLooping, Scanner numScan){
+		long output = 0;
+		do{
+		System.out.println(question1);
+		//checks if letters are input
+			if (numScan.hasNextLong()){
+				output = numScan.nextLong();
+				keepLooping = false;
+				//checks if the user has given a date that hasn't occured yet
+
+				//checks if date is real or not. B.C. is not accepted
+				/*if(testInvalid){
+					System.out.println(invalid1);	
+					keepLooping = true;
+				}*/
+
+			}else{
+				System.out.println("You didn't submit a whole number. Please try again.");
+				numScan.next();
+				keepLooping = true;
+				continue;
+			}
+		}while(keepLooping);
+		return output;
+	}
+	public static float floatCheck(String question1/*, String invalid1, boolean testInvalid*/, boolean keepLooping, Scanner numScan){
+		float output = 0;
+		do{
+		System.out.println(question1);
+		//checks if letters are input
+			if (numScan.hasNextFloat()){
+				output = numScan.nextFloat();
 				keepLooping = false;
 				//checks if the user has given a date that hasn't occured yet
 
